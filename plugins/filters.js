@@ -5,5 +5,5 @@ import format from 'date-fns/format'
 Vue.filter('capitalize', (val) => val.toUpperCase())
 
 Vue.filter('formatDate', (val) =>
-  format(parse(val, 'yyyyMMdd', new Date()), 'dd-MMM-yyyy')
+  format(parse(val, 'yyyyMMdd', new Date()), 'dd-MMM-yyyy (EEE)')
 )
