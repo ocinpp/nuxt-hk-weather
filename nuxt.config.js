@@ -24,6 +24,9 @@ export default {
         content: process.env.npm_package_description || '',
       },
     ],
+    bodyAttrs: {
+      class: 'bg-black h-100 avenir',
+    },
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
