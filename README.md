@@ -1,8 +1,10 @@
 # nuxt-hk-weather
 
+This is a project demonstrating different use of Nuxt.js, using the API from Hong Kong Observatory.
+
 ## Project Creation
 
-🎉  Successfully created project nuxt-hk-weather
+🎉 Successfully created project nuxt-hk-weather
 
 To get started:
 
