@@ -1,18 +1,32 @@
 <template>
-  <div class="pa4">
+  <div class="pa3">
     <div class="w-100 mw8 center">
-      <h1 class="f4 white pv2 ph3">{{ title }}</h1>
-      <div class="ph3 bt b--purple">
-        <p class="f5 lh-copy mv4 white">{{ generalSituation }}</p>
+      <div class="white pv2 bb b--purple">
+        <h1 class="f3">{{ title }}</h1>
       </div>
-      <div>
-        <h2 class="f5 white pv2 ph3">{{ forecast }}</h2>
+      <div class="white pv1 tr">
+        <div class="f7">Last updated: {{ updateDateTime | formatISODate }}</div>
+      </div>
+      <div class="white f3 mv3 cf">
+        <div class="w-20-ns w-30 fl">
+          {{ currentTemperature.value }}
+          {{ currentTemperature.unit }}
+        </div>
+        <div class="w-80-ns w-70 fr">
+          {{ currentTemperature.place }}
+        </div>
+      </div>
+      <div class="white pv2">
+        <h2 class="f4">{{ forecast }}</h2>
+      </div>
+      <div class="bt b--dark-pink white">
+        <p class="lh-copy mv3">{{ generalSituation }}</p>
       </div>
       <div>
         <div
           v-for="weatherForecast of weatherForecasts"
           :key="weatherForecast.forecastDate"
-          class="mw9 center ph3-ns white bt b--dark-pink"
+          class="mw9 center white bt b--dark-pink"
         >
           <div class="cf ph2-ns">
             <div class="fl w-50 w-20-m w-20-l pa3 word-wrap">
@@ -40,18 +54,28 @@ export default {
     // called every time before loading the component
     // as the name said, it can be async
     // Also, the returned object will be merged with your data object
-    const res = await $axios.get(
+    // https://www.hko.gov.hk/en/abouthko/opendata_intro.htm
+    const resForecast = await $axios.get(
       'https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=en'
     )
+
+    const resWeather = await $axios.get(
+      'https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en'
+    )
+
     return {
-      generalSituation: res.data.generalSituation,
-      weatherForecasts: res.data.weatherForecast,
+      generalSituation: resForecast.data.generalSituation,
+      weatherForecasts: resForecast.data.weatherForecast,
+      currentTemperature: resWeather.data.temperature.data.find(
+        (x) => x.place === 'Hong Kong Observatory'
+      ),
+      updateDateTime: resWeather.data.temperature.recordTime,
     }
   },
   data() {
     return {
-      title: 'Hong Kong Weather Forecast',
-      forecast: '9 Day Forecast',
+      title: 'Hong Kong Weather',
+      forecast: '9-Day Weather Forecast',
     }
   },
 }
