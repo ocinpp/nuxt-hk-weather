@@ -6,16 +6,19 @@
       class="mw9 center bt b--dark-pink"
     >
       <div class="cf ph2-ns">
-        <div class="fl w-50 w-20-m w-20-l pa3 word-wrap">
+        <div class="fl w-40 w-20-m w-20-l pa3 word-wrap">
           {{ weatherForecast.forecastDate | formatDate }}
         </div>
-        <div class="fl w-50 w-30-m w-20-l pa3 word-wrap">
+        <div class="fl w-20 w-20-m w-10-l pa2 tc">
+          <img width="50" :src="getImage(weatherForecast.ForecastIcon)" />
+        </div>
+        <div class="fl w-40 w-30-m w-20-l pa3 word-wrap tc">
           {{ weatherForecast.forecastMintemp.value }}
           {{ weatherForecast.forecastMintemp.unit }} /
           {{ weatherForecast.forecastMaxtemp.value }}
           {{ weatherForecast.forecastMaxtemp.unit }}
         </div>
-        <div class="fl w-100 w-50-m w-60-l pa3 word-wrap">
+        <div class="fl w-100 w-30-m w-50-l pa3 word-wrap">
           {{ weatherForecast.forecastWeather }}
         </div>
       </div>
@@ -29,6 +32,11 @@ export default {
     weatherForecasts: {
       type: Array,
       default: () => [],
+    },
+  },
+  methods: {
+    getImage(icon) {
+      return `http://www.hko.gov.hk/images/HKOWxIconOutline/pic${icon}.png`
     },
   },
 }
