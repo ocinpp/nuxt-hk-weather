@@ -1,6 +1,6 @@
 <template>
   <div class="pa3">
-    <div class="w-100 mw8 center white">
+    <div class="w-100 mw8 center">
       <div class="pv2 bb b--purple">
         <h1 class="f3">{{ title }}</h1>
       </div>
