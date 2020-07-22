@@ -28,6 +28,6 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 $ npm run test
 ```
 
-## How to deploy with Vercel?
+## How to deploy with Vercel
 
 [https://nuxtjs.org/faq/now-deployment/](https://nuxtjs.org/faq/now-deployment/)
