@@ -9,8 +9,8 @@
         <div class="fl w-40 w-20-m w-20-l pa3 word-wrap">
           {{ weatherForecast.forecastDate | formatDate }}
         </div>
-        <div class="fl w-20 w-20-m w-10-l pa2 tc">
-          <img width="50" :src="getImage(weatherForecast.ForecastIcon)" />
+        <div class="fl w-20 w-20-m w-10-l pa3 tc">
+          <img width="60" :src="getImage(weatherForecast.ForecastIcon)" />
         </div>
         <div class="fl w-40 w-30-m w-20-l pa3 word-wrap tc">
           {{ weatherForecast.forecastMintemp.value }}
