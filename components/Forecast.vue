@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     getImage(icon) {
-      return `http://www.hko.gov.hk/images/HKOWxIconOutline/pic${icon}.png`
+      return `https://www.hko.gov.hk/images/HKOWxIconOutline/pic${icon}.png`
     },
   },
 }
