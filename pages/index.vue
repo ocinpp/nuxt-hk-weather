@@ -1,23 +1,21 @@
 <template>
-  <div class="pa3">
-    <div class="w-100 mw8 center">
-      <div class="pv2 bb b--purple">
-        <h1 class="f3">{{ title }}</h1>
-      </div>
-      <div class="pv1 tr">
-        <div class="f7">Last updated: {{ updateDateTime | formatISODate }}</div>
-      </div>
-      <current-temperature
-        :temperature="currentTemperature"
-      ></current-temperature>
-      <div class="pv2">
-        <h2 class="f4">{{ forecast }}</h2>
-      </div>
-      <div class="bt b--dark-pink">
-        <p class="lh-copy mv3">{{ generalSituation }}</p>
-      </div>
-      <forecast :weather-forecasts="weatherForecasts"></forecast>
+  <div>
+    <div class="pv2 bb b--purple">
+      <h1 class="f3">{{ title }}</h1>
     </div>
+    <div class="pv1 tr">
+      <div class="f7">Last updated: {{ updateDateTime | formatISODate }}</div>
+    </div>
+    <current-temperature
+      :temperature="currentTemperature"
+    ></current-temperature>
+    <div class="pv2">
+      <h2 class="f4">{{ forecast }}</h2>
+    </div>
+    <div class="bt b--dark-pink">
+      <p class="lh-copy mv3">{{ generalSituation }}</p>
+    </div>
+    <forecast :weather-forecasts="weatherForecasts"></forecast>
   </div>
 </template>
 

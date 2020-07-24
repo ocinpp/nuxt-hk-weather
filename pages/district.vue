@@ -1,15 +1,13 @@
 <template>
-  <div class="pa3">
-    <div class="w-100 mw8 center">
-      <div class="pv2 bb b--purple">
-        <h1 class="f3">{{ title }}</h1>
-      </div>
-      <div class="pv2 tr">
-        <div class="f7">Last updated: {{ updateDateTime | formatISODate }}</div>
-      </div>
-      <div class="pv2">
-        <district-weather :districts="districts"></district-weather>
-      </div>
+  <div>
+    <div class="pv2 bb b--purple">
+      <h1 class="f3">{{ title }}</h1>
+    </div>
+    <div class="pv1 tr">
+      <div class="f7">Last updated: {{ updateDateTime | formatISODate }}</div>
+    </div>
+    <div class="pv2">
+      <district-weather :districts="districts"></district-weather>
     </div>
   </div>
 </template>
