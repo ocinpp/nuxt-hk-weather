@@ -6,10 +6,8 @@
     <div class="pv1 tr">
       <div class="f7">Last updated: {{ updateDateTime | formatISODate }}</div>
     </div>
-    <!-- <current-temperature
-      :temperature="currentTemperature"
-    ></current-temperature> -->
     <current-weather :weather="currentWeather"></current-weather>
+    <current-report :report="currentReport"></current-report>
   </div>
 </template>
 
@@ -29,10 +27,13 @@ export default {
     )
 
     return {
-      currentTemperature: resWeather.data.temperature.data.find(
-        (x) => x.place === 'Hong Kong Observatory'
-      ),
-      currentWeather: resCurrentWeather.data,
+      currentWeather: {
+        // 1 is Hong Kong Observatory
+        temperature: resWeather.data.temperature.data[1],
+        weatherIcons: resWeather.data.icon,
+        warningMessages: resWeather.data.warningMessage,
+      },
+      currentReport: resCurrentWeather.data,
       updateDateTime: resCurrentWeather.data.updateTime,
     }
   },
