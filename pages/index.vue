@@ -22,7 +22,7 @@ export default {
       'https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en'
     )
 
-    const resCurrentWeather = await $axios.get(
+    const resCurrentReport = await $axios.get(
       'https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=en'
     )
 
@@ -33,8 +33,8 @@ export default {
         weatherIcons: resWeather.data.icon,
         warningMessages: resWeather.data.warningMessage,
       },
-      currentReport: resCurrentWeather.data,
-      updateDateTime: resCurrentWeather.data.updateTime,
+      currentReport: resCurrentReport.data,
+      updateDateTime: resWeather.data.updateTime,
     }
   },
   data() {
