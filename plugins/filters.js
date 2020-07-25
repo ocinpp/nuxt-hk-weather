@@ -3,12 +3,18 @@ import parse from 'date-fns/parse'
 import parseISO from 'date-fns/parseISO'
 import format from 'date-fns/format'
 
-Vue.filter('capitalize', (val) => val.toUpperCase())
+Vue.filter('capitalize', (val) =>
+  val !== null && val.len > 0 ? val.toUpperCase() : ''
+)
 
 Vue.filter('formatDate', (val) =>
-  format(parse(val, 'yyyyMMdd', new Date()), 'dd-MMM-yyyy (EEE)')
+  val !== null && val.len > 0
+    ? format(parse(val, 'yyyyMMdd', new Date()), 'dd-MMM-yyyy (EEE)')
+    : ''
 )
 
 Vue.filter('formatISODate', (val) =>
-  format(parseISO(val), 'dd-MMM-yyyy (HH:mm)')
+  val !== null && val.len > 0
+    ? format(parseISO(val), 'dd-MMM-yyyy (HH:mm)')
+    : ''
 )
