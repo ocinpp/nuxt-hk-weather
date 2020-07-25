@@ -4,7 +4,7 @@
       <h1 class="f3">{{ title }}</h1>
     </div>
     <div class="pv1 tr">
-      <div class="f7">Last updated: {{ '' | formatISODate }}</div>
+      <div class="f7">Last updated: {{ updateDateTime | formatISODate }}</div>
     </div>
     <div class="pv1">
       <h2 class="f4">{{ heading }}</h2>
