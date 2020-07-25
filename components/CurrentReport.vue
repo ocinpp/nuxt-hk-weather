@@ -12,9 +12,12 @@
     <div class="bb b--pink pv2 lh-copy">
       {{ report.forecastDesc }}
     </div>
-    <!-- <div class="bb b--pink pv3">
-      {{ weather.outlook }}
-    </div> -->
+    <div class="pv1">
+      <h2 class="f4">{{ heading2 }}</h2>
+    </div>
+    <div class="bb b--pink pv2 lh-copy">
+      {{ report.outlook }}
+    </div>
   </div>
 </template>
 
@@ -34,6 +37,7 @@ export default {
   data() {
     return {
       heading: 'General Situation',
+      heading2: 'Outlook',
     }
   },
 }
