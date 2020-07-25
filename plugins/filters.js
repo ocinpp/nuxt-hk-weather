@@ -4,17 +4,17 @@ import parseISO from 'date-fns/parseISO'
 import format from 'date-fns/format'
 
 Vue.filter('capitalize', (val) =>
-  val !== null && val.len > 0 ? val.toUpperCase() : ''
+  val !== null && val.length > 0 ? val.toUpperCase() : ''
 )
 
 Vue.filter('formatDate', (val) =>
-  val !== null && val.len > 0
+  val !== null && val.length > 0
     ? format(parse(val, 'yyyyMMdd', new Date()), 'dd-MMM-yyyy (EEE)')
     : ''
 )
 
 Vue.filter('formatISODate', (val) =>
-  val !== null && val.len > 0
+  val !== null && val.length > 0
     ? format(parseISO(val), 'dd-MMM-yyyy (HH:mm)')
     : ''
 )
