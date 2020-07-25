@@ -1,21 +1,21 @@
 <template>
   <div class="cf">
-    <div class="pv1">
+    <div class="pv0">
       <h2 class="f4">{{ heading }}</h2>
     </div>
-    <div class="bb b--pink pv2 lh-copy">
+    <div class="bb b--dark-pink pb3 lh-copy">
       {{ report.generalSituation }}
     </div>
-    <div class="pv1">
+    <div class="pv0">
       <h2 class="f4">{{ report.forecastPeriod }}</h2>
     </div>
-    <div class="bb b--pink pv2 lh-copy">
+    <div class="bb b--dark-pink pb3 lh-copy">
       {{ report.forecastDesc }}
     </div>
-    <div class="pv1">
+    <div class="pv0">
       <h2 class="f4">{{ heading2 }}</h2>
     </div>
-    <div class="bb b--pink pv2 lh-copy">
+    <div class="bb b--dark-pink pb3 lh-copy">
       {{ report.outlook }}
     </div>
   </div>
