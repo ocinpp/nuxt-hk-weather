@@ -3,7 +3,7 @@
     <div
       v-for="weatherForecast of weatherForecasts"
       :key="weatherForecast.forecastDate"
-      class="mw9 center bt b--dark-pink"
+      class="mw9 center bb b--dark-pink"
     >
       <div class="cf ph2-ns">
         <div class="fl w-40 w-20-m w-20-l pa3 word-wrap">
