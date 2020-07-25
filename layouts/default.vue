@@ -5,7 +5,7 @@
         <header class="bg-black-90 fixed w-100 mw8 menu ph3 pv3">
           <nav class="flex w75 justify-around f5 pa1 bg-dark-purple">
             <nuxt-link class="link underline-hover dark-pink" to="/"
-              >Home</nuxt-link
+              >Current</nuxt-link
             >
             <nuxt-link class="link underline-hover dark-pink" to="/forecast"
               >Forecast</nuxt-link
