@@ -6,10 +6,10 @@
       class="mw9 center bb b--dark-pink"
     >
       <div class="cf ph2-ns">
-        <div class="fl w-60 pa3 word-wrap">
+        <div class="fl w-80 pa3 word-wrap">
           {{ district.place }}
         </div>
-        <div class="fl w-40 pa3 word-wrap tr">
+        <div class="fl w-20 pa3 word-wrap tr">
           {{ district.value }}
           {{ district.unit }}
         </div>
