@@ -15,12 +15,14 @@
           <img width="90" :src="getImage(icon)" />
         </div>
       </div>
-      <div
-        v-for="message of weather.warningMessages"
-        :key="message.index"
-        class="w-70 w-80-l f4 fl"
-      >
-        {{ message }}
+      <div class="w-70 w-80-l f4 fl">
+        <div
+          v-for="message of weather.warningMessages"
+          :key="message.index"
+          class="pb2"
+        >
+          {{ message }}
+        </div>
       </div>
     </div>
   </div>
