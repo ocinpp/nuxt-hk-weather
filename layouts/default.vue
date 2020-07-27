@@ -1,9 +1,11 @@
 <template>
   <div class="pa3">
     <div>
-      <div class="w-100 mw8 center">
-        <header class="bg-black-90 fixed w-100 mw8 menu ph3 pv3">
-          <nav class="flex w75 justify-around f5 pa1 bg-dark-purple">
+      <div>
+        <header
+          class="bg-black-90 fixed w-100 mw8 center left-0 right-0 menu pv3"
+        >
+          <nav class="flex justify-around f5 pa1 bg-dark-purple">
             <nuxt-link class="link underline-hover dark-pink" to="/"
               >Current</nuxt-link
             >
@@ -15,7 +17,7 @@
             >
           </nav>
         </header>
-        <Nuxt class="pt4" />
+        <Nuxt class="pt4 w-100 mw8 center" />
       </div>
     </div>
   </div>
