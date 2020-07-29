@@ -17,7 +17,6 @@ export default {
   // as the name said, it can be async
   // Also, the returned object will be merged with your data object
   async asyncData({ $axios }) {
-    // https://www.hko.gov.hk/en/abouthko/opendata_intro.htm
     const resWeather = await $axios.get(
       'https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en'
     )
@@ -28,7 +27,7 @@ export default {
 
     return {
       currentWeather: {
-        // 1 is Hong Kong Observatory
+        // index 1 is Hong Kong Observatory
         temperature: resWeather.data.temperature.data[1],
         weatherIcons: resWeather.data.icon,
         warningMessages: resWeather.data.warningMessage,
