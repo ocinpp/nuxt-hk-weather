@@ -7,7 +7,7 @@ describe('App Title Test', () => {
   })
 })
 
-describe('Page H1 Test', () => {
+describe('Current Page H1 Test', () => {
   it('should have the correct H1', () => {
     Page.open()
     const header = $('h1')
