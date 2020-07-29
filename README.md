@@ -2,6 +2,11 @@
 
 This is a project demonstrating different use of Nuxt.js, using the API from Hong Kong Observatory.
 
+Hong Kong Observatory
+API:
+[https://www.hko.gov.hk/en/abouthko/opendata_intro.htm
+](https://www.hko.gov.hk/en/abouthko/opendata_intro.htm)
+
 ## Build Setup
 
 ```bash
