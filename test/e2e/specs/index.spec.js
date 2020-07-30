@@ -15,3 +15,14 @@ describe('Current Page H1 Test', () => {
     expect(header).toHaveText('Hong Kong Weather')
   })
 })
+
+describe('Current Page H2 Test', () => {
+  it('should have the correct H2', () => {
+    Page.open()
+    const headers = $$('h2')
+    expect(headers).toBeElementsArrayOfSize({ eq: 3 })
+    expect(headers[0]).toHaveText('General Situation')
+    expect(headers[1]).toHaveText('Weather forecast for today')
+    expect(headers[2]).toHaveText('Outlook')
+  })
+})
