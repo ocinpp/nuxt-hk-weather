@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="mv3 cf">
-      <div class="w-70 w-80-l f4 fl">
+      <div class="f4 fl">
         <div
           v-for="message of weather.warningMessages"
           :key="message.index"
