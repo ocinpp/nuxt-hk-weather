@@ -18,3 +18,7 @@ Vue.filter('formatISODate', (val) =>
     ? format(parseISO(val), 'dd-MMM-yyyy (HH:mm)')
     : ''
 )
+
+Vue.filter('prettyDescription', (val) =>
+  val !== null && val.length > 0 ? val : 'N/A'
+)

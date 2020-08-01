@@ -10,7 +10,7 @@
       <h2 class="f4">{{ heading }}</h2>
     </div>
     <div>
-      <p class="lh-copy mv2">{{ generalSituation }}</p>
+      <p class="lh-copy mv2">{{ generalSituation | prettyDescription }}</p>
     </div>
     <forecast :weather-forecasts="weatherForecasts"></forecast>
   </div>

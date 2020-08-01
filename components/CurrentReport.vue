@@ -4,19 +4,19 @@
       <h2 class="f4">{{ heading }}</h2>
     </div>
     <div class="bb b--dark-pink pb3 lh-copy">
-      {{ report.generalSituation }}
+      {{ report.generalSituation | prettyDescription }}
     </div>
     <div class="pv0">
       <h2 class="f4">{{ report.forecastPeriod }}</h2>
     </div>
     <div class="bb b--dark-pink pb3 lh-copy">
-      {{ report.forecastDesc }}
+      {{ report.forecastDesc | prettyDescription }}
     </div>
     <div class="pv0">
       <h2 class="f4">{{ heading2 }}</h2>
     </div>
     <div class="bb b--dark-pink pb3 lh-copy">
-      {{ report.outlook }}
+      {{ report.outlook | prettyDescription }}
     </div>
   </div>
 </template>

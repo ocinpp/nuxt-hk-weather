@@ -19,7 +19,7 @@
           {{ weatherForecast.forecastMaxtemp.unit }}
         </div>
         <div class="fl w-100 w-30-m w-50-l pa3 word-wrap">
-          {{ weatherForecast.forecastWeather }}
+          {{ weatherForecast.forecastWeather | prettyDescription }}
         </div>
       </div>
     </div>
