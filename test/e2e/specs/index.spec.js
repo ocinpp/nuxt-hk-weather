@@ -22,7 +22,7 @@ describe('Current Page H2 Test', () => {
     const headers = $$('h2')
     expect(headers).toBeElementsArrayOfSize({ eq: 3 })
     expect(headers[0]).toHaveText('General Situation')
-    expect(headers[1]).toHaveText('Weather forecast for today')
+    expect(headers[1]).toHaveTextContaining('Weather forecast')
     expect(headers[2]).toHaveText('Outlook')
   })
 })
