@@ -26,11 +26,11 @@ $ npm run generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
-## Testing
+## E2E Testing
 
 ```bash
 # testing
-$ npm run test
+$ npm run test:e2e
 ```
 
 ## How to deploy with Vercel
