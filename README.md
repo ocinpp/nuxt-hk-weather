@@ -34,6 +34,19 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 # testing
 $ npm run test:e2e
 ```
+## Cypress Tests
+
+Run all tests
+
+```bash
+./node_modules/.bin/cypress run
+```
+
+Open Test Runner and run tests
+
+```bash
+./node_modules/.bin/cypress open
+```
 
 ## How to deploy with Vercel
 
