@@ -14,8 +14,9 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:wdio/recommended',
     'plugin:nuxt/recommended',
+    'plugin:cypress/recommended',
   ],
-  plugins: ['prettier', 'wdio'],
+  plugins: ['prettier', 'wdio', 'cypress'],
   // add your custom rules here
   rules: {},
 }
