@@ -92,3 +92,6 @@ sw.*
 # Cypress examples
 cypress/integration/examples
 cypress/fixtures/example.json
+
+# Cypress videos
+cypress/videos
