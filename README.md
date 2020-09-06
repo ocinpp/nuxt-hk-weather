@@ -1,6 +1,6 @@
 # nuxt-hk-weather
 
-[![nuxt-hk-weather](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/wfmeii/master&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/wfmeii/runs)
+[![nuxt-hk-weather](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/wfmeii&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/wfmeii/runs)
 
 This is a project demonstrating different use of Nuxt.js, using the API from Hong Kong Observatory.
 
