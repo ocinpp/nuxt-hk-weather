@@ -1,4 +1,4 @@
-name: End-to-end tests
+name: Cypress End-to-end tests
 on: [push]
 jobs:
   cypress-run:
@@ -11,11 +11,11 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          record: true  
-          build: npm run build  
+          record: true
+          build: npm run build
           start: npm run start
           wait-on: 'http://localhost:3000'
-          wait-on-timeout: 120  
+          wait-on-timeout: 120
         env:
           # pass the Dashboard record key as an environment variable
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
