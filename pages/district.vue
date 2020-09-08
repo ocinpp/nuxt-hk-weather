@@ -7,7 +7,7 @@
       <div class="f7">Last updated: {{ updateDateTime | formatISODate }}</div>
     </div>
     <div class="pv2">
-      <district-weather :districts="districts"></district-weather>
+      <district-weather :id="id" :districts="districts"></district-weather>
     </div>
   </div>
 </template>
@@ -21,6 +21,7 @@ export default {
     )
 
     return {
+      id: 'district-weather',
       districts: resWeather.data.temperature.data,
       updateDateTime: resWeather.data.temperature.recordTime,
     }
