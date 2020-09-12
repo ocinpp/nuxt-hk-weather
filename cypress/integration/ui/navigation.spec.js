@@ -1,26 +1,26 @@
 /// <reference types="cypress" />
 
-const BASE_URL = Cypress.env('base_url')
-
 describe('Navigation Menu Test', () => {
-  it('clicking "Forecast" navigates to "Forecast" url', () => {
-    cy.visit(BASE_URL)
+  const baseUrl = Cypress.config('baseUrl')
+
+  it('clicks "Forecast" navigates to "Forecast" url', () => {
+    cy.visit('/')
     cy.contains('Forecast').click()
-    cy.url().should('eq', BASE_URL + '/forecast')
+    cy.url().should('eq', baseUrl + '/forecast')
     cy.location('pathname').should('eq', '/forecast')
   })
 
-  it('clicking "District" navigates to "District" url', () => {
-    cy.visit(BASE_URL)
+  it('clicks "District" navigates to "District" url', () => {
+    cy.visit('/')
     cy.contains('District').click()
-    cy.url().should('eq', BASE_URL + '/district')
+    cy.url().should('eq', baseUrl + '/district')
     cy.location('pathname').should('eq', '/district')
   })
 
-  it('clicking "Current" navigates to "Current" url', () => {
-    cy.visit(BASE_URL + '/district')
+  it('clicks "Current" navigates to "Current" url', () => {
+    cy.visit('/district')
     cy.contains('Current').click()
-    cy.url().should('eq', BASE_URL + '/')
+    cy.url().should('eq', baseUrl + '/')
     cy.location('pathname').should('eq', '/')
   })
 })
