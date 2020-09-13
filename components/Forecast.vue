@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :id="id">
     <div
       v-for="weatherForecast of weatherForecasts"
       :key="weatherForecast.forecastDate"
@@ -29,6 +29,10 @@
 <script>
 export default {
   props: {
+    id: {
+      type: String,
+      default: 'element-forecast',
+    },
     weatherForecasts: {
       type: Array,
       default: () => [],
