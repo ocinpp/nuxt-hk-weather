@@ -12,14 +12,13 @@
     <div>
       <p class="lh-copy mv2">{{ generalSituation | prettyDescription }}</p>
     </div>
-    <forecast :weather-forecasts="weatherForecasts"></forecast>
+    <forecast :id="id" :weather-forecasts="weatherForecasts"></forecast>
   </div>
 </template>
 
 <script>
 export default {
   async asyncData({ $axios }) {
-    // https://www.hko.gov.hk/en/abouthko/opendata_intro.htm
     const resForecast = await $axios.get(
       'https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=en'
     )
@@ -32,6 +31,7 @@ export default {
   },
   data() {
     return {
+      id: 'weather-forecast',
       title: '9-Day Weather Forecast',
       heading: 'General Situation',
     }

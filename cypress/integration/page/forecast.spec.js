@@ -9,4 +9,8 @@ describe('Forecast Page Content Test', () => {
     cy.get('.f4').should('have.text', 'General Situation')
     cy.get('.lh-copy').should('not.be.empty')
   })
+
+  it('has 9 weather forecast entries', () => {
+    cy.get('#weather-forecast').children().should('have.length', 9)
+  })
 })
