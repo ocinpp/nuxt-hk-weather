@@ -15,7 +15,6 @@
 <script>
 export default {
   async asyncData({ $axios }) {
-    // https://www.hko.gov.hk/en/abouthko/opendata_intro.htm
     const resWeather = await $axios.get(
       'https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en'
     )
