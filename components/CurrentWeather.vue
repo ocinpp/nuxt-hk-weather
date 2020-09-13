@@ -1,16 +1,21 @@
 <template>
   <div>
     <div class="f2 mv3 cf">
-      <div class="w-20 w-10-l fl tc">
-        <div v-for="icon of weather.weatherIcons" :key="icon.index">
+      <div class="w-30 w-20-l fl tc">
+        <div
+          v-for="icon of weather.weatherIcons"
+          :key="icon.index"
+          class="icons"
+        >
+          <div v-if="icon.index >= 1" class="arrows-icons">>></div>
           <img width="80" :src="getImage(icon)" />
         </div>
       </div>
-      <div class="w-30 w-20-l fl tc">
+      <div class="w-20 w-20-l fl tc">
         {{ weather.temperature.value }}
         {{ weather.temperature.unit }}
       </div>
-      <div class="w-50 w-70-l fl">
+      <div class="w-50 w-60-l fl">
         {{ weather.temperature.place }}
       </div>
     </div>
@@ -27,6 +32,15 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+.icons {
+  display: inline-flex;
+}
+.arrow-icons {
+  margin-top: 17px;
+}
+</style>
 
 <script>
 export default {
