@@ -7,7 +7,13 @@
       <div class="f7">Last updated: {{ updateDateTime | formatISODate }}</div>
     </div>
     <current-weather :weather="currentWeather"></current-weather>
-    <current-report :report="currentReport"></current-report>
+    <current-report :report="currentReport">
+      <template v-slot:generalSituation>General Situation</template>
+      <template v-slot:forecastPeriod>
+        {{ currentReport.forecastPeriod }}
+      </template>
+      <template v-slot:outlook>Outlook</template>
+    </current-report>
   </div>
 </template>
 
