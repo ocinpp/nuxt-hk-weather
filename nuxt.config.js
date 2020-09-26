@@ -59,12 +59,21 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/sentry',
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  /*
+   ** Sentry.io
+   **
+   */
+  sentry: {
+    dsn: process.env.SENTRY_DSN, // Enter your project's DSN here
+    config: { sourceMapStyle: 'hidden-source-map' }, // Additional config
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/

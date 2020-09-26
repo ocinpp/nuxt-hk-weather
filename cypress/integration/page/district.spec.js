@@ -14,8 +14,8 @@ describe('District Page Content Test', () => {
     cy.get('h1').should('have.text', 'District Weather')
   })
 
-  it('has 27 locations', () => {
-    cy.get('#district-weather').children().should('have.length', 27)
+  it('has at least 26 locations', () => {
+    cy.get('#district-weather').children().should('have.length.at.least', 26)
   })
 
   it('has correct first district', () => {
@@ -53,7 +53,7 @@ describe('District Page Content Test', () => {
   it('has correct last district', () => {
     cy.get('#district-weather')
       .children()
-      .eq(26)
+      .last()
       .children()
       .eq(0)
       .children()
