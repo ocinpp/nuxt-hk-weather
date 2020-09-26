@@ -17,11 +17,11 @@
 </template>
 
 <script>
+import { baseApiUrl } from '../variables.js'
+
 export default {
   async asyncData({ $axios }) {
-    const resForecast = await $axios.get(
-      'https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=en'
-    )
+    const resForecast = await $axios.get(baseApiUrl + '?dataType=fnd&lang=en')
 
     return {
       generalSituation: resForecast.data.generalSituation,

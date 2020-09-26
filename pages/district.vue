@@ -13,10 +13,12 @@
 </template>
 
 <script>
+import { baseApiUrl } from '../variables.js'
+
 export default {
   async asyncData({ $axios }) {
     const resWeather = await $axios.get(
-      'https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en'
+      baseApiUrl + '?dataType=rhrread&lang=en'
     )
 
     return {
