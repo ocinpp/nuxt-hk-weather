@@ -12,17 +12,19 @@
 </template>
 
 <script>
+import { baseApiUrl } from '../variables.js'
+
 export default {
   // called every time before loading the component
   // as the name said, it can be async
   // Also, the returned object will be merged with your data object
   async asyncData({ $axios }) {
     const resWeather = await $axios.get(
-      'https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en'
+      baseApiUrl + '?dataType=rhrread&lang=en'
     )
 
     const resCurrentReport = await $axios.get(
-      'https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=flw&lang=en'
+      baseApiUrl + '?dataType=flw&lang=en'
     )
 
     return {
