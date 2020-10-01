@@ -1,10 +1,13 @@
 <template>
   <div>
     <div class="pv2 bb b--purple">
-      <h1 class="f3">{{ title }}</h1>
+      <h1 class="f3">{{ $t('district_weather') }}</h1>
     </div>
     <div class="pv1 tr">
-      <div class="f7">Last updated: {{ updateDateTime | formatISODate }}</div>
+      <div class="f7">
+        {{ $t('last_updated') }}:
+        {{ updateDateTime | formatISODate }}
+      </div>
     </div>
     <div class="pv2">
       <district-weather :id="id" :districts="districts"></district-weather>
@@ -16,9 +19,9 @@
 import { baseApiUrl } from '../variables.js'
 
 export default {
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, app }) {
     const resWeather = await $axios.get(
-      baseApiUrl + '?dataType=rhrread&lang=en'
+      baseApiUrl + `?dataType=rhrread&lang=${app.i18n.locale}`
     )
 
     return {
@@ -28,9 +31,7 @@ export default {
     }
   },
   data() {
-    return {
-      title: 'District Weather',
-    }
+    return {}
   },
 }
 </script>

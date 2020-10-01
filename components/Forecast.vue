@@ -7,7 +7,7 @@
     >
       <div class="cf ph2-ns">
         <div class="fl w-40 w-20-m w-20-l pa3 word-wrap">
-          {{ weatherForecast.forecastDate | formatDate }}
+          {{ weatherForecast.forecastDate | formatDate(locale) }}
         </div>
         <div class="fl w-20 w-20-m w-10-l pa3 tc">
           <img width="60" :src="getImage(weatherForecast.ForecastIcon)" />
@@ -36,6 +36,10 @@ export default {
     weatherForecasts: {
       type: Array,
       default: () => [],
+    },
+    locale: {
+      type: String,
+      default: 'en',
     },
   },
   methods: {
