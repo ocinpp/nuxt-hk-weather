@@ -1,18 +1,24 @@
 <template>
   <div>
     <div class="pv2 bb b--purple">
-      <h1 class="f3">{{ title }}</h1>
+      <h1 class="f3">{{ $t('nine_day_forecast') }}</h1>
     </div>
     <div class="pv1 tr">
-      <div class="f7">Last updated: {{ updateDateTime | formatISODate }}</div>
+      <div class="f7">
+        {{ $t('last_updated') }}: {{ updateDateTime | formatISODate }}
+      </div>
     </div>
     <div class="pv1">
-      <h2 class="f4">{{ heading }}</h2>
+      <h2 class="f4">{{ $t('general_situation') }}</h2>
     </div>
     <div>
       <p class="lh-copy mv2">{{ generalSituation | prettyDescription }}</p>
     </div>
-    <forecast :id="id" :weather-forecasts="weatherForecasts"></forecast>
+    <forecast
+      :id="id"
+      :weather-forecasts="weatherForecasts"
+      :locale="$i18n.locale"
+    ></forecast>
   </div>
 </template>
 
@@ -20,8 +26,10 @@
 import { baseApiUrl } from '../variables.js'
 
 export default {
-  async asyncData({ $axios }) {
-    const resForecast = await $axios.get(baseApiUrl + '?dataType=fnd&lang=en')
+  async asyncData({ $axios, app }) {
+    const resForecast = await $axios.get(
+      baseApiUrl + `?dataType=fnd&lang=${app.i18n.locale}`
+    )
 
     return {
       generalSituation: resForecast.data.generalSituation,
