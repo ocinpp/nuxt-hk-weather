@@ -21,7 +21,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || '',
+        content: 'Hong Kong Weather',
       },
     ],
     bodyAttrs: {
@@ -60,12 +60,33 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/sentry',
+    'nuxt-i18n',
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        file: 'en.js',
+        name: 'EN',
+      },
+      {
+        code: 'tc',
+        file: 'tc.js',
+        name: '中文',
+      },
+    ],
+    defaultLocale: 'en',
+    strategy: 'prefix',
+    lazy: true,
+    langDir: 'lang/',
+  },
+
   /*
    ** Sentry.io
    **
