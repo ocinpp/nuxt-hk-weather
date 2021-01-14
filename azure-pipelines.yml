@@ -25,6 +25,7 @@ steps:
   displayName: 'Run cypress test'
 
 - task: PublishTestResults@2
+  condition: succeededOrFailed()
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/*-test-*.xml'
