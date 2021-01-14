@@ -23,3 +23,8 @@ steps:
 - script: |
     npx start-server-and-test start http://localhost:3000 test:cypress
   displayName: 'Run cypress test'
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/*-TEST-*.xml'
