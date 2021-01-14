@@ -21,6 +21,5 @@ steps:
   displayName: 'npm install and build'
 
 - script: |
-    npm install --save-dev start-server-and-test
-    ./node_modules/start-server-and-test/src/bin/start.js start http://localhost:3000 test:cypress
+    npx start-server-and-test start http://localhost:3000 test:cypress
   displayName: 'Run cypress test'
