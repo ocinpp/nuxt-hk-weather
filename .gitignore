@@ -95,3 +95,6 @@ cypress/fixtures/example.json
 
 # Cypress videos
 cypress/videos
+
+# Results
+results/
