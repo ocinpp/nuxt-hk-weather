@@ -36,15 +36,15 @@
     "@wdio/sync": "^6.11.0",
     "cypress": "^7.4.0",
     "eslint": "^7.28.0",
-    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-cypress": "^2.11.3",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-wdio": "^6.6.0",
     "prettier": "^2.3.1",
     "stylelint": "^13.13.1",
-    "stylelint-config-prettier": "^8.0.1",
-    "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0",
     "webdriverio": "^6.12.1"
   }
 }
