@@ -55,7 +55,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@nuxtjs/sentry',
-    'nuxt-i18n',
+    '@nuxtjs/i18n',
   ],
   /*
    ** Axios module configuration
