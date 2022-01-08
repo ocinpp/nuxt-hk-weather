@@ -13,7 +13,7 @@ jobs:
         with:
           record: true
           build: npm run build
-          start: npm run start
+          start: npx start-server-and-test start http://localhost:3000
           wait-on: 'http://localhost:3000, http://localhost:3000/en, http://localhost:3000/tc'
           wait-on-timeout: 120
         env:
