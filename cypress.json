@@ -1,6 +1,7 @@
 {
   "projectId": "wfmeii",
   "baseUrl": "http://localhost:3000",
+  "pageLoadTimeout": 60000,
   "reporter": "junit",
   "reporterOptions": {
     "mochaFile": "results/my-test-output-[hash].xml"
