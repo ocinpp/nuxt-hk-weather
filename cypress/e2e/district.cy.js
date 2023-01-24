@@ -5,8 +5,11 @@
 describe('District (EN) Page Content Test', () => {
   const baseUrl = Cypress.config('baseUrl')
 
-  it('visits "District" page', () => {
+  beforeEach(() => {
     cy.visit('/district')
+  })
+
+  it('visits "District" page', () => {
     cy.url().should('eq', baseUrl + '/en/district')
   })
 
@@ -65,8 +68,11 @@ describe('District (EN) Page Content Test', () => {
 describe('District (TC) Page Content Test', () => {
   const baseUrl = Cypress.config('baseUrl')
 
-  it('visits "District" page', () => {
+  beforeEach(() => {
     cy.visit('/tc/district')
+  })
+
+  it('visits "District" page', () => {
     cy.url().should('eq', baseUrl + '/tc/district')
   })
 
