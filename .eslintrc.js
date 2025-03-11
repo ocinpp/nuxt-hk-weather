@@ -11,11 +11,10 @@ module.exports = {
     '@nuxtjs',
     'prettier',
     'plugin:prettier/recommended',
-    'plugin:wdio/recommended',
     'plugin:nuxt/recommended',
     'plugin:cypress/recommended',
   ],
-  plugins: ['prettier', 'wdio', 'cypress'],
+  plugins: ['prettier', 'cypress'],
   // add your custom rules here
   rules: {},
 }

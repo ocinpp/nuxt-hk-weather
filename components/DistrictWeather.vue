@@ -15,17 +15,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    id: {
-      type: String,
-      default: 'element-districts',
-    },
-    districts: {
-      type: Array,
-      default: () => [],
-    },
+<script setup>
+defineProps({
+  id: {
+    type: String,
+    default: 'element-districts',
   },
-}
+  districts: {
+    type: Array,
+    default: () => [],
+  },
+})
 </script>

@@ -7,7 +7,7 @@
     >
       <div class="cf ph2-ns">
         <div class="fl w-40 w-20-m w-20-l pa3 word-wrap">
-          {{ weatherForecast.forecastDate | formatDate(locale) }}
+          {{ formatDate(weatherForecast.forecastDate, locale.value) }}
         </div>
         <div class="fl w-20 w-20-m w-10-l pa3 tc">
           <img width="60" :src="getImage(weatherForecast.ForecastIcon)" />
@@ -19,33 +19,28 @@
           {{ weatherForecast.forecastMaxtemp.unit }}
         </div>
         <div class="fl w-100 w-30-m w-50-l pa3 word-wrap">
-          {{ weatherForecast.forecastWeather | prettyDescription }}
+          {{ prettyDescription(weatherForecast.forecastWeather) }}
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    id: {
-      type: String,
-      default: 'element-forecast',
-    },
-    weatherForecasts: {
-      type: Array,
-      default: () => [],
-    },
-    locale: {
-      type: String,
-      default: 'en',
-    },
+<script setup>
+const { locale } = useI18n()
+
+defineProps({
+  id: {
+    type: String,
+    default: 'element-forecast',
   },
-  methods: {
-    getImage(icon) {
-      return `https://www.hko.gov.hk/images/HKOWxIconOutline/pic${icon}.png`
-    },
+  weatherForecasts: {
+    type: Array,
+    default: () => [],
   },
+})
+
+function getImage(icon) {
+  return `https://www.hko.gov.hk/images/HKOWxIconOutline/pic${icon}.png`
 }
 </script>

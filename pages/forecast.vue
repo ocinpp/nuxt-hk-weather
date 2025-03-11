@@ -5,44 +5,36 @@
     </div>
     <div class="pv1 tr">
       <div class="f7">
-        {{ $t('last_updated') }}: {{ updateDateTime | formatISODate }}
+        {{ $t('last_updated') }}:
+        {{ formatISODate(updateDateTime, locale.code) }}
       </div>
     </div>
     <div class="pv1">
       <h2 class="f4">{{ $t('general_situation') }}</h2>
     </div>
     <div>
-      <p class="lh-copy mv2">{{ generalSituation | prettyDescription }}</p>
+      <p class="lh-copy mv2">{{ prettyDescription(generalSituation) }}</p>
     </div>
-    <forecast
-      :id="id"
-      :weather-forecasts="weatherForecasts"
-      :locale="$i18n.locale"
-    ></forecast>
+    <Forecast :id="id" :weather-forecasts="weatherForecasts" />
   </div>
 </template>
 
-<script>
+<script setup>
 import { baseApiUrl } from '../variables.js'
+import { formatISODate, prettyDescription } from '@/utils/formatUtils'
 
-export default {
-  async asyncData({ $axios, app }) {
-    const resForecast = await $axios.get(
-      baseApiUrl + `?dataType=fnd&lang=${app.i18n.locale}`
-    )
+const { locale } = useI18n()
 
-    return {
-      generalSituation: resForecast.data.generalSituation,
-      weatherForecasts: resForecast.data.weatherForecast,
-      updateDateTime: resForecast.data.updateTime,
-    }
-  },
-  data() {
-    return {
-      id: 'weather-forecast',
-      title: '9-Day Weather Forecast',
-      heading: 'General Situation',
-    }
-  },
-}
+const generalSituation = ref(null)
+const weatherForecasts = ref(null)
+const updateDateTime = ref(null)
+const id = ref('weather-forecast')
+
+const { data: resForecast } = await useFetch(
+  baseApiUrl + `?dataType=fnd&lang=${locale.value}`
+)
+
+generalSituation.value = resForecast.value.generalSituation
+weatherForecasts.value = resForecast.value.weatherForecast
+updateDateTime.value = resForecast.value.updateTime
 </script>
