@@ -20,14 +20,12 @@ import { baseApiUrl } from '../variables.js'
 import { formatISODate } from '@/utils/formatUtils'
 
 const { locale } = useI18n()
-const districts = ref([])
-const updateDateTime = ref(null)
-const id = ref('district-weather')
+const id = 'district-weather'
 
 const { data: resWeather } = await useFetch(
   baseApiUrl + `?dataType=rhrread&lang=${locale.value}`
 )
 
-districts.value = resWeather.value.temperature.data
-updateDateTime.value = resWeather.value.temperature.recordTime
+const districts = resWeather.value.temperature.data
+const updateDateTime = resWeather.value.temperature.recordTime
 </script>

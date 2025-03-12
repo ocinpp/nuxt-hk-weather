@@ -15,7 +15,7 @@
     <div>
       <p class="lh-copy mv2">{{ prettyDescription(generalSituation) }}</p>
     </div>
-    <Forecast :id="id" :weather-forecasts="weatherForecasts" />
+    <WeatherForecast :id="id" :weather-forecasts="weatherForecasts" />
   </div>
 </template>
 
@@ -24,17 +24,13 @@ import { baseApiUrl } from '../variables.js'
 import { formatISODate, prettyDescription } from '@/utils/formatUtils'
 
 const { locale } = useI18n()
-
-const generalSituation = ref(null)
-const weatherForecasts = ref(null)
-const updateDateTime = ref(null)
-const id = ref('weather-forecast')
+const id = 'weather-forecast'
 
 const { data: resForecast } = await useFetch(
   baseApiUrl + `?dataType=fnd&lang=${locale.value}`
 )
 
-generalSituation.value = resForecast.value.generalSituation
-weatherForecasts.value = resForecast.value.weatherForecast
-updateDateTime.value = resForecast.value.updateTime
+const generalSituation = resForecast.value.generalSituation
+const weatherForecasts = resForecast.value.weatherForecast
+const updateDateTime = resForecast.value.updateTime
 </script>

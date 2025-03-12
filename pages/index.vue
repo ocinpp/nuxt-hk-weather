@@ -19,14 +19,6 @@ import { baseApiUrl } from '../variables.js'
 import { formatISODate } from '@/utils/formatUtils'
 
 const { locale } = useI18n()
-const currentReport = ref(null)
-const updateDateTime = ref(null)
-const currentWeather = shallowRef({
-  temperature: null,
-  weatherIcons: null,
-  warningMessages: null,
-})
-
 const { data: resWeather } = await useFetch(
   baseApiUrl + `?dataType=rhrread&lang=${locale.value}`
 )
@@ -34,12 +26,12 @@ const { data: resCurrentReport } = await useFetch(
   baseApiUrl + `?dataType=flw&lang=${locale.value}`
 )
 
-currentWeather.value = {
+const currentWeather = {
   // index 1 is Hong Kong Observatory
   temperature: resWeather.value.temperature.data[1],
   weatherIcons: resWeather.value.icon,
   warningMessages: resWeather.value.warningMessage,
 }
-currentReport.value = resCurrentReport.value
-updateDateTime.value = resWeather.value.updateTime
+const currentReport = resCurrentReport.value
+const updateDateTime = resWeather.value.updateTime
 </script>
