@@ -1,4 +1,5 @@
 <template>
+  <NuxtLoadingIndicator color="purple" height="2" />
   <div class="pa3">
     <div>
       <div>
@@ -22,15 +23,14 @@
               >{{ $t('menu_district') }}</NuxtLink
             >
             <NuxtLink
-              v-for="locale in availableLocales"
-              :key="locale.code"
+              v-for="availableLocale in availableLocales"
+              :key="availableLocale.code"
               class="link underline-hover dark-pink"
-              :to="switchLocalePath(locale.code)"
-              >{{ locale.name }}</NuxtLink
+              :to="switchLocalePath(availableLocale.code)"
+              >{{ availableLocale.name }}</NuxtLink
             >
           </nav>
         </header>
-
         <NuxtPage class="pt4 w-100 mw8 center" />
       </div>
     </div>
@@ -41,9 +41,10 @@
 const { locale, locales, t } = useI18n()
 const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
+const title = computed(() => t('title'))
 
 useHead({
-  title: t('title'),
+  title: title,
 })
 
 const availableLocales = computed(() => {
