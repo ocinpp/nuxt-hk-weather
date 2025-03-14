@@ -1,19 +1,3 @@
-<template>
-  <div>
-    <div class="pv2 bb b--purple">
-      <h1 class="f3">{{ $t('title') }}</h1>
-    </div>
-    <div class="pv1 tr">
-      <div class="f7">
-        {{ $t('last_updated') }}:
-        {{ formatISODate(updateDateTime, pagelocale) }}
-      </div>
-    </div>
-    <CurrentWeather :weather="currentWeather" />
-    <CurrentReport :report="currentReport" />
-  </div>
-</template>
-
 <script setup>
 import { baseApiUrl } from '../variables.js'
 import { formatISODate } from '@/utils/formatUtils'
@@ -37,3 +21,19 @@ const currentWeather = {
 const currentReport = resCurrentReport.value
 const updateDateTime = resWeather.value.updateTime
 </script>
+
+<template>
+  <div>
+    <div class="pv2 bb b--purple">
+      <h1 class="f3">{{ $t('title') }}</h1>
+    </div>
+    <div class="pv1 tr">
+      <div class="f7">
+        {{ $t('last_updated') }}:
+        {{ formatISODate(updateDateTime, pagelocale) }}
+      </div>
+    </div>
+    <CurrentWeather :weather="currentWeather" />
+    <CurrentReport :report="currentReport" />
+  </div>
+</template>

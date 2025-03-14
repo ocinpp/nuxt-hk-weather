@@ -1,3 +1,23 @@
+<script setup>
+const { locale } = useI18n()
+const pagelocale = locale.value
+
+defineProps({
+  id: {
+    type: String,
+    default: 'element-forecast',
+  },
+  weatherForecasts: {
+    type: Array,
+    default: () => [],
+  },
+})
+
+function getImage(icon) {
+  return `https://www.hko.gov.hk/images/HKOWxIconOutline/pic${icon}.png`
+}
+</script>
+
 <template>
   <div :id="id">
     <div
@@ -25,23 +45,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-const { locale } = useI18n()
-const pagelocale = locale.value
-
-defineProps({
-  id: {
-    type: String,
-    default: 'element-forecast',
-  },
-  weatherForecasts: {
-    type: Array,
-    default: () => [],
-  },
-})
-
-function getImage(icon) {
-  return `https://www.hko.gov.hk/images/HKOWxIconOutline/pic${icon}.png`
-}
-</script>

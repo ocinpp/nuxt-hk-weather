@@ -1,3 +1,19 @@
+<script setup>
+import { baseApiUrl } from '../variables.js'
+import { formatISODate } from '@/utils/formatUtils'
+
+const { locale } = useI18n()
+const pagelocale = locale.value
+const id = 'district-weather'
+
+const { data: resWeather } = await useFetch(
+  baseApiUrl + `?dataType=rhrread&lang=${locale.value}`
+)
+
+const districts = resWeather.value.temperature.data
+const updateDateTime = resWeather.value.temperature.recordTime
+</script>
+
 <template>
   <div>
     <div class="pv2 bb b--purple">
@@ -14,19 +30,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { baseApiUrl } from '../variables.js'
-import { formatISODate } from '@/utils/formatUtils'
-
-const { locale } = useI18n()
-const pagelocale = locale.value
-const id = 'district-weather'
-
-const { data: resWeather } = await useFetch(
-  baseApiUrl + `?dataType=rhrread&lang=${locale.value}`
-)
-
-const districts = resWeather.value.temperature.data
-const updateDateTime = resWeather.value.temperature.recordTime
-</script>

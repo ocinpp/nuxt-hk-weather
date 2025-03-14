@@ -1,3 +1,20 @@
+<script setup>
+import { baseApiUrl } from '../variables.js'
+import { formatISODate, prettyDescription } from '@/utils/formatUtils'
+
+const { locale } = useI18n()
+const pagelocale = locale.value
+const id = 'weather-forecast'
+
+const { data: resForecast } = await useFetch(
+  baseApiUrl + `?dataType=fnd&lang=${locale.value}`
+)
+
+const generalSituation = resForecast.value.generalSituation
+const weatherForecasts = resForecast.value.weatherForecast
+const updateDateTime = resForecast.value.updateTime
+</script>
+
 <template>
   <div>
     <div class="pv2 bb b--purple">
@@ -18,20 +35,3 @@
     <WeatherForecast :id="id" :weather-forecasts="weatherForecasts" />
   </div>
 </template>
-
-<script setup>
-import { baseApiUrl } from '../variables.js'
-import { formatISODate, prettyDescription } from '@/utils/formatUtils'
-
-const { locale } = useI18n()
-const pagelocale = locale.value
-const id = 'weather-forecast'
-
-const { data: resForecast } = await useFetch(
-  baseApiUrl + `?dataType=fnd&lang=${locale.value}`
-)
-
-const generalSituation = resForecast.value.generalSituation
-const weatherForecasts = resForecast.value.weatherForecast
-const updateDateTime = resForecast.value.updateTime
-</script>

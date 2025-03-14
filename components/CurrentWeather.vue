@@ -1,3 +1,24 @@
+<script setup>
+defineProps({
+  weather: {
+    type: Object,
+    default: () => ({
+      temperature: {
+        value: 'N/A',
+        unit: 'N/A',
+        place: 'N/A',
+      },
+      weatherIcons: [],
+      warningMessages: [],
+    }),
+  },
+})
+
+function getImage(icon) {
+  return `https://www.hko.gov.hk/images/HKOWxIconOutline/pic${icon}.png`
+}
+</script>
+
 <template>
   <div>
     <div class="f2 mv3 cf">
@@ -27,24 +48,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-defineProps({
-  weather: {
-    type: Object,
-    default: () => ({
-      temperature: {
-        value: 'N/A',
-        unit: 'N/A',
-        place: 'N/A',
-      },
-      weatherIcons: [],
-      warningMessages: [],
-    }),
-  },
-})
-
-function getImage(icon) {
-  return `https://www.hko.gov.hk/images/HKOWxIconOutline/pic${icon}.png`
-}
-</script>
