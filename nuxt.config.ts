@@ -80,12 +80,5 @@ export default defineNuxtConfig({
     /* module options */
   },
 
-  routeRules: {
-    // prerender index route by default
-    '/': { prerender: true },
-    // prerender this route and all child routes
-    '/prerender-multiple/**': { prerender: true },
-  },
-
   compatibilityDate: '2025-03-11',
 })
