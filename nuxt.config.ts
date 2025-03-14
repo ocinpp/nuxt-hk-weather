@@ -1,3 +1,5 @@
+import { defineNuxtConfig } from 'nuxt/config'
+
 export default defineNuxtConfig({
   /*
    ** Headers of the page
@@ -42,10 +44,11 @@ export default defineNuxtConfig({
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/i18n', // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module', // Doc: https://github.com/nuxt-community/stylelint-module
+    // Doc: https://i18n.nuxtjs.org/docs/getting-started
+    '@nuxtjs/i18n',
+    // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
+    // Doc: https://eslint.nuxt.com/packages/module
     '@nuxt/eslint',
   ],
 
@@ -68,11 +71,8 @@ export default defineNuxtConfig({
     langDir: 'lang/',
   },
 
-  /*
-   ** Build configuration
-   ** See https://nuxtjs.org/api/configuration-build/
-   */
-  build: {},
+  // https://eslint.nuxt.com/packages/module
+  eslint: {},
 
   compatibilityDate: '2025-03-11',
 })
