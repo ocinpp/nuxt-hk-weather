@@ -80,5 +80,9 @@ export default defineNuxtConfig({
     /* module options */
   },
 
+  nitro: {
+    static: true,
+  },
+
   compatibilityDate: '2025-03-11',
 })
