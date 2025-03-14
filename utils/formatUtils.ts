@@ -1,6 +1,4 @@
-import parse from 'date-fns/parse'
-import parseISO from 'date-fns/parseISO'
-import format from 'date-fns/format'
+import { format, parse, parseISO } from 'date-fns'
 import { zhTW, enUS } from 'date-fns/locale'
 
 export function capitalize(val: string) {
