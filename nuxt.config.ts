@@ -72,7 +72,13 @@ export default defineNuxtConfig({
   },
 
   // https://eslint.nuxt.com/packages/module
-  eslint: {},
+  eslint: {
+    /* module options */
+  },
+
+  stylelint: {
+    /* module options */
+  },
 
   compatibilityDate: '2025-03-11',
 })
