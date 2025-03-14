@@ -7,7 +7,7 @@
     >
       <div class="cf ph2-ns">
         <div class="fl w-40 w-20-m w-20-l pa3 word-wrap">
-          {{ formatDate(weatherForecast.forecastDate, locale.value) }}
+          {{ formatDate(weatherForecast.forecastDate, pagelocale) }}
         </div>
         <div class="fl w-20 w-20-m w-10-l pa3 tc">
           <img width="60" :src="getImage(weatherForecast.ForecastIcon)" />
@@ -28,6 +28,7 @@
 
 <script setup>
 const { locale } = useI18n()
+const pagelocale = locale.value
 
 defineProps({
   id: {

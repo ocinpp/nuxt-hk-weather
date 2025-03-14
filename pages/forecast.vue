@@ -6,7 +6,7 @@
     <div class="pv1 tr">
       <div class="f7">
         {{ $t('last_updated') }}:
-        {{ formatISODate(updateDateTime, locale.code) }}
+        {{ formatISODate(updateDateTime, pagelocale) }}
       </div>
     </div>
     <div class="pv1">
@@ -24,6 +24,7 @@ import { baseApiUrl } from '../variables.js'
 import { formatISODate, prettyDescription } from '@/utils/formatUtils'
 
 const { locale } = useI18n()
+const pagelocale = locale.value
 const id = 'weather-forecast'
 
 const { data: resForecast } = await useFetch(
