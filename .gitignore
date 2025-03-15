@@ -67,6 +67,7 @@ typings/
 
 # nuxt.js build output
 .nuxt
+.output
 
 # Nuxt generate
 dist
@@ -101,3 +102,4 @@ cypress/screenshots
 
 # Results
 results/
+.stylelintcache

@@ -1,3 +1,27 @@
+<script setup>
+import { baseApiUrl } from '../variables.js'
+import { formatISODate } from '@/utils/formatUtils'
+
+const { locale } = useI18n()
+const pagelocale = locale.value
+
+const { data: resWeather } = await useFetch(
+  baseApiUrl + `?dataType=rhrread&lang=${locale.value}`
+)
+const { data: resCurrentReport } = await useFetch(
+  baseApiUrl + `?dataType=flw&lang=${locale.value}`
+)
+
+const currentWeather = {
+  // index 1 is Hong Kong Observatory
+  temperature: resWeather.value.temperature.data[1],
+  weatherIcons: resWeather.value.icon,
+  warningMessages: resWeather.value.warningMessage,
+}
+const currentReport = resCurrentReport.value
+const updateDateTime = resWeather.value.updateTime
+</script>
+
 <template>
   <div>
     <div class="pv2 bb b--purple">
@@ -5,45 +29,11 @@
     </div>
     <div class="pv1 tr">
       <div class="f7">
-        {{ $t('last_updated') }}: {{ updateDateTime | formatISODate }}
+        {{ $t('last_updated') }}:
+        {{ formatISODate(updateDateTime, pagelocale) }}
       </div>
     </div>
-    <current-weather :weather="currentWeather"></current-weather>
-    <current-report :report="currentReport"></current-report>
+    <CurrentWeather :weather="currentWeather" />
+    <CurrentReport :report="currentReport" />
   </div>
 </template>
-
-<script>
-import { baseApiUrl } from '../variables.js'
-
-export default {
-  // called every time before loading the component
-  // as the name said, it can be async
-  // Also, the returned object will be merged with your data object
-  async asyncData({ $axios, app }) {
-    const resWeather = await $axios.get(
-      baseApiUrl + `?dataType=rhrread&lang=${app.i18n.locale}`
-    )
-
-    const resCurrentReport = await $axios.get(
-      baseApiUrl + `?dataType=flw&lang=${app.i18n.locale}`
-    )
-
-    return {
-      currentWeather: {
-        // index 1 is Hong Kong Observatory
-        temperature: resWeather.data.temperature.data[1],
-        weatherIcons: resWeather.data.icon,
-        warningMessages: resWeather.data.warningMessage,
-      },
-      currentReport: resCurrentReport.data,
-      updateDateTime: resWeather.data.updateTime,
-    }
-  },
-  data() {
-    return {
-      title: 'Hong Kong Weather',
-    }
-  },
-}
-</script>

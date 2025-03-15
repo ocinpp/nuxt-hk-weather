@@ -1,3 +1,20 @@
+<script setup>
+import { baseApiUrl } from '../variables.js'
+import { formatISODate, prettyDescription } from '@/utils/formatUtils'
+
+const { locale } = useI18n()
+const pagelocale = locale.value
+const id = 'weather-forecast'
+
+const { data: resForecast } = await useFetch(
+  baseApiUrl + `?dataType=fnd&lang=${locale.value}`
+)
+
+const generalSituation = resForecast.value.generalSituation
+const weatherForecasts = resForecast.value.weatherForecast
+const updateDateTime = resForecast.value.updateTime
+</script>
+
 <template>
   <div>
     <div class="pv2 bb b--purple">
@@ -5,44 +22,16 @@
     </div>
     <div class="pv1 tr">
       <div class="f7">
-        {{ $t('last_updated') }}: {{ updateDateTime | formatISODate }}
+        {{ $t('last_updated') }}:
+        {{ formatISODate(updateDateTime, pagelocale) }}
       </div>
     </div>
     <div class="pv1">
       <h2 class="f4">{{ $t('general_situation') }}</h2>
     </div>
     <div>
-      <p class="lh-copy mv2">{{ generalSituation | prettyDescription }}</p>
+      <p class="lh-copy mv2">{{ prettyDescription(generalSituation) }}</p>
     </div>
-    <forecast
-      :id="id"
-      :weather-forecasts="weatherForecasts"
-      :locale="$i18n.locale"
-    ></forecast>
+    <WeatherForecast :id="id" :weather-forecasts="weatherForecasts" />
   </div>
 </template>
-
-<script>
-import { baseApiUrl } from '../variables.js'
-
-export default {
-  async asyncData({ $axios, app }) {
-    const resForecast = await $axios.get(
-      baseApiUrl + `?dataType=fnd&lang=${app.i18n.locale}`
-    )
-
-    return {
-      generalSituation: resForecast.data.generalSituation,
-      weatherForecasts: resForecast.data.weatherForecast,
-      updateDateTime: resForecast.data.updateTime,
-    }
-  },
-  data() {
-    return {
-      id: 'weather-forecast',
-      title: '9-Day Weather Forecast',
-      heading: 'General Situation',
-    }
-  },
-}
-</script>
