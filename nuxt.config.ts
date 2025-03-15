@@ -1,10 +1,12 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
-  /*
-   ** Headers of the page
-   ** See https://nuxtjs.org/api/configuration-head
-   */
+
+
+  // https://github.com/nuxt/nuxt/issues/22401
+  // https://stackoverflow.com/questions/76287288/usefetch-response-value-not-accessible
+  ssr: false,
+
   app: {
     head: {
       title: 'Hong Kong Weather',
@@ -30,15 +32,8 @@ export default defineNuxtConfig({
 
   /*
    ** Plugins to load before mounting the App
-   ** https://nuxtjs.org/guide/plugins
    */
   plugins: [],
-
-  /*
-   ** Auto import components
-   ** See https://nuxtjs.org/api/configuration-components
-   */
-  // components: true,
 
   /*
    ** Nuxt.js modules
