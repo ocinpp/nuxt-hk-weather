@@ -1,3 +1,19 @@
+<script setup>
+import { baseApiUrl } from '../variables.js'
+import { formatISODate } from '@/utils/formatUtils'
+
+const { locale } = useI18n()
+const pagelocale = locale.value
+const id = 'district-weather'
+
+const { data: resWeather } = await useFetch(
+  baseApiUrl + `?dataType=rhrread&lang=${locale.value}`
+)
+
+const districts = resWeather.value.temperature.data
+const updateDateTime = resWeather.value.temperature.recordTime
+</script>
+
 <template>
   <div>
     <div class="pv2 bb b--purple">
@@ -6,32 +22,11 @@
     <div class="pv1 tr">
       <div class="f7">
         {{ $t('last_updated') }}:
-        {{ updateDateTime | formatISODate }}
+        {{ formatISODate(updateDateTime, pagelocale) }}
       </div>
     </div>
     <div class="pv2">
-      <district-weather :id="id" :districts="districts"></district-weather>
+      <DistrictWeather :id="id" :districts="districts" />
     </div>
   </div>
 </template>
-
-<script>
-import { baseApiUrl } from '../variables.js'
-
-export default {
-  async asyncData({ $axios, app }) {
-    const resWeather = await $axios.get(
-      baseApiUrl + `?dataType=rhrread&lang=${app.i18n.locale}`
-    )
-
-    return {
-      id: 'district-weather',
-      districts: resWeather.data.temperature.data,
-      updateDateTime: resWeather.data.temperature.recordTime,
-    }
-  },
-  data() {
-    return {}
-  },
-}
-</script>
