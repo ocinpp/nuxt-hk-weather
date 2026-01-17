@@ -19,24 +19,24 @@
     "cypress:open": "npx cypress open"
   },
   "dependencies": {
-    "@nuxt/eslint": "^1.2.0",
-    "@nuxtjs/i18n": "^9.3.1",
+    "@nuxt/eslint": "^1.12.1",
+    "@nuxtjs/i18n": "^10.2.1",
     "date-fns": "^4.1.0",
-    "nuxt": "^3.16.0",
+    "nuxt": "^3.20.2",
     "tachyons": "^4.12.0"
   },
   "devDependencies": {
-    "@nuxtjs/stylelint-module": "^5.2.0",
-    "cypress": "^14.2.0",
-    "eslint": "^9.22.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-cypress": "^4.2.0",
-    "eslint-plugin-prettier": "^3.4.1",
-    "postcss-html": "^1.5.0",
-    "prettier": "^2.8.3",
-    "stylelint": "^16.16.0",
-    "stylelint-config-standard": "^37.0.0",
-    "stylelint-config-standard-scss": "^14.0.0",
-    "typescript": "^5.8.2"
+    "@nuxtjs/stylelint-module": "^5.2.1",
+    "cypress": "^15.9.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-cypress": "^5.2.1",
+    "eslint-plugin-prettier": "^5.5.5",
+    "postcss-html": "^1.8.1",
+    "prettier": "^3.8.0",
+    "stylelint": "^17.0.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "typescript": "^5.9.3"
   }
 }
