@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "engines": {
-    "node": "22.x"
+    "node": "24.x"
   },
   "scripts": {
     "dev": "nuxt dev",
@@ -19,20 +19,20 @@
     "cypress:open": "npx cypress open"
   },
   "dependencies": {
-    "@nuxt/eslint": "^1.16.0",
-    "@nuxtjs/i18n": "^10.5.0",
+    "@nuxt/eslint": "^1.17.0",
+    "@nuxtjs/i18n": "^10.6.0",
     "date-fns": "^4.4.0",
-    "nuxt": "^3.21.10",
+    "nuxt": "^3.21.11",
     "tachyons": "^4.12.0"
   },
   "devDependencies": {
     "@nuxtjs/stylelint-module": "^5.2.1",
-    "cypress": "^15.19.0",
-    "eslint": "^10.8.0",
+    "cypress": "^15.21.0",
+    "eslint": "^10.9.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-cypress": "^6.4.0",
+    "eslint-plugin-cypress": "^7.0.1",
     "eslint-plugin-prettier": "^5.5.6",
-    "postcss-html": "^1.8.1",
+    "postcss-html": "^2.0.0",
     "prettier": "^3.9.6",
     "stylelint": "^17.0.0",
     "stylelint-config-standard": "^40.0.0",
