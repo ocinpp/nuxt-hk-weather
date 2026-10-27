@@ -22,7 +22,7 @@
     "@nuxt/eslint": "^1.17.0",
     "@nuxtjs/i18n": "^10.6.0",
     "date-fns": "^4.4.0",
-    "nuxt": "^3.21.11",
+    "nuxt": "^4.6.2",
     "tachyons": "^4.12.0"
   },
   "devDependencies": {
